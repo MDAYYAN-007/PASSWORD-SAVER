@@ -44,7 +44,7 @@ const Form = () => {
         pauseOnHover: false,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
       });
     }
   }, [errors]);
@@ -57,10 +57,10 @@ const Form = () => {
           site: data.website,
           username: data.username,
           password: data.password,
-          showPassword: false, // Add this line
+          showPassword: false,
         },
       ]);
-      toast.success("Password save successfully!", {
+      toast.success("Password saved successfully!", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -68,7 +68,7 @@ const Form = () => {
         pauseOnHover: false,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
       });
     } else {
       const updatedPasswords = passwords.map((item, index) =>
@@ -90,7 +90,7 @@ const Form = () => {
         pauseOnHover: false,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
       });
     }
     setEditIndex(null);
@@ -132,7 +132,7 @@ const Form = () => {
         pauseOnHover: false,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
       });
     }
   };
@@ -141,17 +141,16 @@ const Form = () => {
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="text-center mt-8 text-xl flex flex-col gap-3 items-center w-10/12 mx-auto"
+        className="text-center mt-8 text-xl flex flex-col gap-3 items-center w-10/12 mx-auto text-gray-200"
       >
         <div className="w-full flex max-sm:flex-wrap justify-center items-center">
           <label htmlFor="website-name" className="w-2/12 max-sm:w-full">
-            {" "}
-            Website:{" "}
+            Website:
           </label>
           <input
             className={`h-12 p-3 border-2 rounded-full w-10/12 outline-none max-sm:w-full ${
-              errors.website ? "border-red-500" : "border-black "
-            } `}
+              errors.website ? "border-red-500" : "border-gray-600 bg-black"
+            }`}
             placeholder="Enter website"
             {...register("website", { required: true })}
             id="website-name"
@@ -162,12 +161,11 @@ const Form = () => {
         </div>
         <div className="w-full flex flex-wrap items-center justify-center max-sm:flex-col">
           <label htmlFor="username" className="w-2/12 max-sm:w-full">
-            {" "}
-            Username:{" "}
+            Username:
           </label>
           <input
-            className={`h-12 rounded-full p-2 border-black border-2 w-5/12 max-sm:w-full max-md:w-10/12 outline-none max-md:my-3 ${
-              errors.username ? "border-red-500" : "border-black "
+            className={`h-12 rounded-full p-2 border-gray-600 bg-black border-2 w-5/12 max-sm:w-full max-md:w-10/12 outline-none max-md:my-3 ${
+              errors.username ? "border-red-500" : "border-gray-600"
             }`}
             placeholder="Enter username"
             {...register("username", { required: true })}
@@ -176,13 +174,12 @@ const Form = () => {
             onChange={(e) => setUsername(e.target.value)}
           />
           <label htmlFor="password" className="w-2/12 max-sm:w-full">
-            {" "}
-            Password:{" "}
+            Password:
           </label>
           <div className="relative w-3/12 max-sm:w-full max-md:w-10/12 max-md:my-3">
             <input
-              className={`h-12 rounded-full p-2 border-black border-2 w-full pr-10 outline-none ${
-                errors.website ? "border-red-700" : "border-black "
+              className={`h-12 rounded-full p-2 border-gray-600 bg-black border-2 w-full pr-10 outline-none ${
+                errors.password ? "border-red-700" : "border-gray-600"
               }`}
               type={showFormPassword ? "text" : "password"}
               placeholder="Enter password"
@@ -192,7 +189,7 @@ const Form = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button
-              className="absolute inset-y-0 right-0 px-3 text-gray-600"
+              className="absolute inset-y-0 right-0 px-3 text-gray-400"
               onClick={handleToggleFormPassword}
               type="button"
             >
@@ -202,23 +199,23 @@ const Form = () => {
         </div>
         <button
           type="submit"
-          className="bg-green-500 p-1 py-2 w-3/5 mt-4 rounded-full cursor-pointer text-white"
+          className="bg-gold p-1 py-2 w-3/5 mt-4 rounded-full cursor-pointer text-black"
         >
           {editIndex !== null ? (
             <>
               <FontAwesomeIcon icon={faSave} className="mr-4" />
-              Save Password{" "}
+              Save Password
             </>
           ) : (
             <>
               <FontAwesomeIcon icon={faSave} className="mr-4" />
-              Add Password{" "}
+              Add Password
             </>
           )}
         </button>
       </form>
 
-      <div className="mt-4 w-[80%] mx-auto">
+      <div className="mt-4 w-[80%] mx-auto text-gray-200">
         {passwords.length > 0 ? (
           <>
             <h2 className="text-2xl font-bold mb-4">Stored Passwords</h2>
@@ -226,54 +223,49 @@ const Form = () => {
               <table className="table-auto w-full">
                 <thead>
                   <tr className="text-white">
-                    <th className="p-3 bg-green-500 rounded-tl-2xl">Site</th>
-                    <th className="p-3 bg-green-500">Username</th>
-                    <th className="p-3 bg-green-500">Password</th>
-                    <th className="p-3 bg-green-500 rounded-tr-2xl">Actions</th>
+                    <th className="p-3 bg-gray-800 rounded-tl-2xl">Site</th>
+                    <th className="p-3 bg-gray-800 min-w-32">Username</th>
+                    <th className="p-3 bg-gray-800 min-w-32">Password</th>
+                    <th className="p-3 bg-gray-800 rounded-tr-2xl min-w-20">
+                      Actions
+                    </th>
                   </tr>
                 </thead>
-                <tbody>
-                  {passwords.map((item, index) => (
+                <tbody className=" border border-gray-800">
+                  {passwords.map((password, index) => (
                     <tr
                       key={index}
-                      className="even:bg-green-100 hover:bg-gray-100"
+                      className="text-gray-400 border-b border-gray-800"
                     >
-                      <td className="p-3 text-center">
-                        <a
-                          href={
-                            item.site.startsWith("http")
-                              ? item.site
-                              : `http://${item.site}`
-                          }
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {item.site}
-                        </a>
-                      </td>
-                      <td className="p-3 text-center">{item.username}</td>
-                      <td className="p-3 text-center">
-                        {item.showPassword ? item.password : "••••••••"}
+                      <td className="p-3 bg-black">{password.site}</td>
+                      <td className="p-3 bg-black">{password.username}</td>
+                      <td className="p-3 bg-black">
+                        {password.showPassword ? (
+                          <span className="mr-2">{password.password}</span>
+                        ) : (
+                          <span className="mr-2">
+                            {"•".repeat(password.password.length)}
+                          </span>
+                        )}
                         <button
-                          className="ml-2 text-blue-500 hover:text-blue-700"
                           onClick={() => handleTogglePassword(index)}
+                          className="text-gold"
                         >
                           <FontAwesomeIcon
-                            icon={item.showPassword ? faEyeSlash : faEye}
-                            className="ml-2"
+                            icon={password.showPassword ? faEyeSlash : faEye}
                           />
                         </button>
                       </td>
-                      <td className="p-3 text-center">
+                      <td className="p-3 bg-black">
                         <button
-                          className="m-2"
                           onClick={() => changeEditIndex(index)}
+                          className="text-blue-400 mr-2"
                         >
                           <FontAwesomeIcon icon={faEdit} />
                         </button>
                         <button
-                          className="m-2"
                           onClick={() => deletePassword(index)}
+                          className="text-red-500"
                         >
                           <FontAwesomeIcon icon={faTrash} />
                         </button>
@@ -285,12 +277,14 @@ const Form = () => {
             </div>
           </>
         ) : (
-          <div>No passwords stored.</div>
+          <p className="text-xl text-gray-400">No passwords saved yet.</p>
         )}
       </div>
+
       <ToastContainer />
     </>
   );
 };
 
 export default Form;
+

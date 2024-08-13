@@ -1,12 +1,19 @@
-import React from 'react'
+import React from 'react';
+import "./Navbar.css"
 
 const Navbar = () => {
   return (
-    <nav className='bg-slate-900 flex items-center text-white h-12 justify-around w-full fixed top-0 z-10'>
-        <h1 className='text-xl'><span className='text-green-500'>&lt;</span>Pass<span className='text-green-500'>Keeper/&gt;</span></h1>
-        <a href="https://www.instagram.com/mddayyan007/" target='_blank' rel="noopener noreferrer"><button className='p-1 border-white border-2 rounded-full'><i class="fab fa-instagram"></i>Follow</button></a>
+    <nav className='flex items-center text-white h-16 justify-between px-3 fixed top-0 w-full z-20'>
+      <h1 className='text-2xl font-semibold'>
+        <span className='text-gold'>&lt;</span>Pass<span className='text-gold'>Keeper/&gt;</span>
+      </h1>
+      <a href="https://www.instagram.com/mddayyan007/" target='_blank' rel="noopener noreferrer">
+        <button className='bg-gold hover:bg-gold-dark p-2 border border-transparent rounded-full flex items-center text-black transition duration-300'>
+          <i className="fab fa-instagram mr-2"></i>Follow
+        </button>
+      </a>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

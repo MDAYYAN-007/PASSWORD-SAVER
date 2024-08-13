@@ -13,6 +13,20 @@ export default {
         'max-md': { 'max': '767px' },  // Custom max-width breakpoint for medium screens
         'max-sm': { 'max': '639px' },  // Custom max-width breakpoint for small screens
       },
+      colors: {
+        gold: {
+          DEFAULT: "#FFD700",
+          dark: "#B8860B",
+        },
+        black: {
+          DEFAULT: "#000000",
+          light: "#222222",
+        },
+        gray: {
+          200: "#E5E7EB",
+          400: "#9CA3AF",
+        },
+      },
     },
   },
   plugins: [],

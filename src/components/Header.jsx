@@ -1,12 +1,14 @@
-import React from 'react'
+import React from 'react';
 
 const Header = () => {
   return (
-    <div className='my-4 w-full flex flex-col items-center mt-16'>
-      <h1 className='text-3xl font-mono font-bold'><span className='text-green-500'>&lt;</span>Pass<span className='text-green-500'>Keeper/&gt;</span></h1>
-      <p>One stop solution for storing passwords</p>
-    </div>
-  )
-}
+    <header className='my-6 w-full flex flex-col items-center mt-24'>
+      <h1 className='text-4xl font-bold font-mono mb-2 text-gray-200'>
+        <span className='text-gold'>&lt;</span>Pass<span className='text-gold'>Keeper/&gt;</span>
+      </h1>
+      <p className='text-lg text-gray-400'>Your secure password storage solution.</p>
+    </header>
+  );
+};
 
-export default Header
+export default Header;
